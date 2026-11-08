@@ -7,7 +7,7 @@ export default function Hero() {
       id="hero"
       className="relative min-h-screen w-full flex items-center justify-end px-4 sm:px-6 md:px-16 lg:px-24 overflow-hidden pt-24 pb-16"
       style={{
-        backgroundImage: `url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=2000&q=85')`,
+        backgroundImage: `url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1920&q=85')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center 40%'
       }}

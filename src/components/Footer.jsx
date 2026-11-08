@@ -1,23 +1,9 @@
 import React from 'react'
 import BrandLogo from './BrandLogo'
-import Floating3DElement from './3d/Floating3DElement'
 
 export default function Footer() {
   return (
     <footer className="relative bg-[#05070B] border-t border-[#0088FF]/20 pt-16 pb-12 px-6 md:px-16 lg:px-24 overflow-hidden">
-      {/* 3D Barber Pole Accent in the bottom-left corner */}
-      <Floating3DElement
-        src="/images/theshave/barber_pole.png"
-        alt="3D Barber Pole Accent"
-        className="absolute -left-6 md:left-4 -bottom-10 w-24 md:w-36 z-0 opacity-40 md:opacity-75 pointer-events-none"
-        scrollSpeed={60}
-        rotateRange={[-22, -18]}
-        tilt3D={{ rotateX: [10, -5], rotateY: [15, -10] }}
-        scaleRange={[0.95, 1.05]}
-        blendMode="screen"
-        useRadialMask={true}
-      />
-
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
           {/* Brand Col */}

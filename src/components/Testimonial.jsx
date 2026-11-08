@@ -59,12 +59,12 @@ export default function Testimonial() {
 
           <div
             ref={trayRef}
-            className="rounded-3xl overflow-hidden border border-[#0088FF]/35 shadow-[0_30px_70px_rgba(0,0,0,0.9)] group transform-gpu transition-shadow duration-500 hover:shadow-[0_35px_80px_rgba(0,140,255,0.25)]"
+            className="rounded-2xl overflow-hidden border border-[#0088FF]/30 shadow-[0_0_40px_rgba(0,136,255,0.15)] group transform-gpu transition-shadow duration-500 hover:shadow-[0_0_50px_rgba(0,168,232,0.3)]"
             style={{ transformStyle: 'preserve-3d' }}
           >
             <img
-              src="/images/theshave/tray_clean.jpg"
-              alt="Artisan Walnut Grooming Tray with Straight Razor and Badger Brush"
+              src="https://images.unsplash.com/photo-1621607512214-68297480165e?auto=format&fit=crop&w=1000&q=85"
+              alt="Professional Luxury Salon & Barber Tools Flatlay"
               className="w-full h-[360px] md:h-[420px] object-cover transition-transform duration-700 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#060912]/80 via-transparent to-transparent pointer-events-none" />

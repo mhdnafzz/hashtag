@@ -29,13 +29,13 @@ function ScissorModel({ scrollProgress = 0 }) {
   const steelMaterial = useMemo(
     () =>
       new THREE.MeshPhysicalMaterial({
-        color: new THREE.Color('#f0f3f7'),
-        metalness: 0.98,
+        color: new THREE.Color('#ffffff'),
+        metalness: 0.95,
         roughness: 0.12,
         clearcoat: 1.0,
         clearcoatRoughness: 0.1,
         reflectivity: 1.0,
-        envMapIntensity: 2.8
+        envMapIntensity: 3.0
       }),
     []
   )
@@ -189,11 +189,11 @@ export default function RealScissorsScene({ scrollProgress = 0, className = '' }
           castShadow
         />
 
-        {/* Electric Blue Rim / Accent Light (intensity: 3.8, position: [-5, -5, -2], color: #0099FF) */}
+        {/* Electric Blue Rim / Accent Light (intensity: 4.0, position: [-5, -5, -2], color: #00A8E8) */}
         <directionalLight
           position={[-5, -5, -2]}
-          intensity={3.8}
-          color="#0099FF"
+          intensity={4.0}
+          color="#00A8E8"
         />
 
         {/* Top Specular Accent Light with subtle cyan sheen */}

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Calendar, User, Scissors, ShieldCheck, Sparkles, Coffee } from 'lucide-react'
-import Floating3DElement from './3d/Floating3DElement'
+import Real3DFloatingShear from './3d/Real3DFloatingShear'
 
 export default function BookingForm() {
   const [service, setService] = useState('')
@@ -30,30 +30,14 @@ Please confirm my reservation time. Thank you!`
       {/* Background radial spotlight glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,119,255,0.1)_0%,transparent_70%)] pointer-events-none" />
 
-      {/* Floating 3D Comb & Shears along the outer margins */}
-      <Floating3DElement
-        src="/images/theshave/comb.png"
-        alt="3D Floating Comb"
-        className="absolute -left-6 md:left-6 top-1/4 w-28 md:w-44 z-10 opacity-75 md:opacity-95"
-        scrollSpeed={-130}
-        rotateRange={[-28, 14]}
-        tilt3D={{ rotateX: [-12, 10], rotateY: [15, -15] }}
-        scaleRange={[0.9, 1.05]}
-        blendMode="screen"
-        useRadialMask={true}
-      />
-
-      <Floating3DElement
-        src="/images/theshave/shears_right.png"
-        alt="3D Floating Shears Right"
-        className="absolute -right-8 md:right-8 bottom-6 w-36 md:w-52 z-10 opacity-75 md:opacity-95"
-        scrollSpeed={160}
-        rotateRange={[18, -22]}
-        tilt3D={{ rotateX: [14, -10], rotateY: [-22, 16] }}
-        scaleRange={[0.92, 1.1]}
-        blendMode="screen"
-        useRadialMask={true}
-      />
+      {/* Real 3D WebGL Floating Scissor along outer right margin (Zero rectangular background) */}
+      <div className="absolute -right-6 sm:right-0 md:right-4 bottom-6 md:bottom-12 z-10 pointer-events-none">
+        <Real3DFloatingShear
+          className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 pointer-events-none"
+          scale={0.78}
+          reverse={true}
+        />
+      </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center max-w-xl mx-auto mb-16">
@@ -197,7 +181,7 @@ Please confirm my reservation time. Thank you!`
           <div className="hidden lg:flex w-64 xl:w-72 rotate-6 transform transition-all duration-500 hover:rotate-0 hover:scale-105 rounded-3xl p-3.5 backdrop-blur-md bg-white/5 border border-[#0088FF]/30 shadow-[0_25px_60px_rgba(0,0,0,0.85)] flex-col gap-3 group">
             <div className="h-44 w-full rounded-2xl overflow-hidden relative">
               <img
-                src="/images/theshave/tray_clean.jpg"
+                src="https://images.unsplash.com/photo-1621607512214-68297480165e?auto=format&fit=crop&w=1000&q=85"
                 alt="Sterilized Straight Razors and Artisan Tools"
                 className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
               />
