@@ -1,17 +1,73 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
+import { Sparkles } from 'lucide-react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 export default function Testimonial() {
+  const sectionRef = useRef(null)
+  const trayRef = useRef(null)
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      if (trayRef.current && sectionRef.current) {
+        gsap.fromTo(
+          trayRef.current,
+          {
+            rotateX: 8,
+            rotateY: -12,
+            y: 35,
+            transformPerspective: 1200
+          },
+          {
+            rotateX: -4,
+            rotateY: 8,
+            y: -35,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: 1.2
+            }
+          }
+        )
+      }
+    }, sectionRef)
+
+    return () => ctx.revert()
+  }, [])
+
   return (
-    <section id="testimonial" className="relative py-28 px-6 md:px-16 lg:px-24 bg-[#060912] overflow-hidden border-t border-b border-[#0088FF]/15">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-        {/* Left Photo: Walnut Grooming Tray */}
-        <div className="lg:col-span-5 relative">
-          <div className="rounded-3xl overflow-hidden border border-[#0088FF]/30 shadow-[0_30px_70px_rgba(0,0,0,0.9)] group">
+    <section
+      ref={sectionRef}
+      id="testimonial"
+      className="relative py-28 px-6 md:px-16 lg:px-24 bg-[#060912] overflow-hidden border-t border-b border-[#0088FF]/15"
+    >
+      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center relative z-10">
+        {/* Left Photo: Walnut Grooming Tray with 3D Perspective Tilt Parallax */}
+        <div className="lg:col-span-5 relative [perspective:1200px]">
+          {/* Ambient Bokeh and Sparkles around the 3D Tray */}
+          <div className="absolute -top-6 -right-6 w-8 h-8 text-sky-400/80 animate-pulse pointer-events-none z-20">
+            <Sparkles className="w-full h-full" />
+          </div>
+          <div className="absolute -bottom-6 -left-6 w-6 h-6 text-[#00A8E8]/70 pointer-events-none z-20 animate-float-dust">
+            <Sparkles className="w-full h-full" />
+          </div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 rounded-full bg-[#0088FF]/20 blur-[70px] pointer-events-none" />
+
+          <div
+            ref={trayRef}
+            className="rounded-3xl overflow-hidden border border-[#0088FF]/35 shadow-[0_30px_70px_rgba(0,0,0,0.9)] group transform-gpu transition-shadow duration-500 hover:shadow-[0_35px_80px_rgba(0,140,255,0.25)]"
+            style={{ transformStyle: 'preserve-3d' }}
+          >
             <img
               src="/images/theshave/tray_clean.jpg"
               alt="Artisan Walnut Grooming Tray with Straight Razor and Badger Brush"
               className="w-full h-[360px] md:h-[420px] object-cover transition-transform duration-700 group-hover:scale-105"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#060912]/80 via-transparent to-transparent pointer-events-none" />
           </div>
         </div>
 

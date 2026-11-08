@@ -1,4 +1,5 @@
 import React from 'react'
+import Floating3DElement from './3d/Floating3DElement'
 
 const menuItems = [
   { name: 'Haircut', price: '$45', time: '45 mins' },
@@ -10,8 +11,33 @@ const menuItems = [
 
 export default function ChairShowcase() {
   return (
-    <section id="menu" className="relative py-28 px-6 md:px-16 lg:px-24 bg-[#060912] border-t border-b border-[#0088FF]/20">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+    <section id="menu" className="relative py-28 px-6 md:px-16 lg:px-24 bg-[#060912] border-t border-b border-[#0088FF]/20 overflow-hidden">
+      {/* 3D Floating Shears along Chair Showcase margins */}
+      <Floating3DElement
+        src="/images/theshave/shears_right.png"
+        alt="3D Floating Shears"
+        className="absolute -right-8 md:right-8 top-16 w-32 md:w-52 z-20 opacity-70 md:opacity-95"
+        scrollSpeed={140}
+        rotateRange={[12, -22]}
+        tilt3D={{ rotateX: [15, -10], rotateY: [-22, 12] }}
+        scaleRange={[0.92, 1.08]}
+        blendMode="screen"
+        useRadialMask={true}
+      />
+
+      <Floating3DElement
+        src="/images/theshave/shears_left.png"
+        alt="3D Floating Shears Left"
+        className="absolute -left-6 md:left-6 bottom-16 w-24 md:w-40 z-20 opacity-70 md:opacity-90"
+        scrollSpeed={-120}
+        rotateRange={[-20, 15]}
+        tilt3D={{ rotateX: [-12, 10], rotateY: [18, -12] }}
+        scaleRange={[0.9, 1.05]}
+        blendMode="screen"
+        useRadialMask={true}
+      />
+
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center relative z-10">
         {/* Left Photo: Spotlighted Vintage Leather Barber Chair */}
         <div className="lg:col-span-6 relative">
           <div className="relative rounded-3xl overflow-hidden border border-[#0088FF]/30 shadow-[0_30px_70px_rgba(0,0,0,0.9)] group">

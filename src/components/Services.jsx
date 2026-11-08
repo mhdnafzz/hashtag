@@ -1,5 +1,6 @@
 import React from 'react'
 import { ArrowUpRight } from 'lucide-react'
+import Floating3DElement from './3d/Floating3DElement'
 
 const serviceCards = [
   {
@@ -27,9 +28,34 @@ const serviceCards = [
 
 export default function Services() {
   return (
-    <section id="services" className="relative py-28 px-6 md:px-16 lg:px-24 bg-[#05070B]">
+    <section id="services" className="relative py-28 px-6 md:px-16 lg:px-24 bg-[#05070B] overflow-hidden">
       {/* Ambient Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#0077FF]/10 blur-[180px] pointer-events-none" />
+
+      {/* Floating 3D Barber Shears (Video 00:01 - 00:03 Parallax Depth) */}
+      <Floating3DElement
+        src="/images/theshave/shears_left.png"
+        alt="3D Barber Shears Left"
+        className="absolute -left-6 md:left-4 top-12 w-28 md:w-44 z-20 opacity-80 md:opacity-100"
+        scrollSpeed={-140}
+        rotateRange={[-18, 12]}
+        tilt3D={{ rotateX: [-10, 8], rotateY: [15, -10] }}
+        scaleRange={[0.92, 1.08]}
+        blendMode="screen"
+        useRadialMask={true}
+      />
+
+      <Floating3DElement
+        src="/images/theshave/shears_right.png"
+        alt="3D Barber Shears Right"
+        className="absolute -right-6 md:right-6 top-1/3 w-32 md:w-52 z-20 opacity-75 md:opacity-100"
+        scrollSpeed={160}
+        rotateRange={[15, -20]}
+        tilt3D={{ rotateX: [12, -8], rotateY: [-20, 15] }}
+        scaleRange={[0.9, 1.1]}
+        blendMode="screen"
+        useRadialMask={true}
+      />
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}

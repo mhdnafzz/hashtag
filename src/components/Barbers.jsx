@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { ChevronRight, Award, Star } from 'lucide-react'
+import Floating3DElement from './3d/Floating3DElement'
 
 const barbers = [
   {
@@ -36,7 +37,32 @@ export default function Barbers() {
   }
 
   return (
-    <section id="barbers" className="relative py-28 px-6 md:px-16 lg:px-24 bg-[#05070B]">
+    <section id="barbers" className="relative py-28 px-6 md:px-16 lg:px-24 bg-[#05070B] overflow-hidden">
+      {/* 3D Floating Comb & Barber Pole (Video 00:04 - 00:05 Parallax) */}
+      <Floating3DElement
+        src="/images/theshave/comb.png"
+        alt="3D Floating Salon Comb"
+        className="absolute left-2 md:left-8 top-1/3 w-24 md:w-36 z-20 opacity-80 md:opacity-100"
+        scrollSpeed={-110}
+        rotateRange={[-25, 10]}
+        tilt3D={{ rotateX: [-8, 12], rotateY: [-10, 18] }}
+        scaleRange={[0.92, 1.08]}
+        blendMode="screen"
+        useRadialMask={true}
+      />
+
+      <Floating3DElement
+        src="/images/theshave/barber_pole.png"
+        alt="3D Floating Barber Pole"
+        className="absolute right-2 md:right-10 bottom-6 w-24 md:w-40 z-20 opacity-80 md:opacity-100"
+        scrollSpeed={140}
+        rotateRange={[-15, 20]}
+        tilt3D={{ rotateX: [12, -8], rotateY: [15, -15] }}
+        scaleRange={[0.9, 1.1]}
+        blendMode="screen"
+        useRadialMask={true}
+      />
+
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <p className="text-xs uppercase tracking-[0.28em] text-[#00A8E8] font-bold mb-3 font-sans">

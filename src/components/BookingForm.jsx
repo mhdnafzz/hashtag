@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Calendar, User, Scissors, ShieldCheck, Sparkles, Coffee } from 'lucide-react'
+import Floating3DElement from './3d/Floating3DElement'
 
 export default function BookingForm() {
   const [service, setService] = useState('')
@@ -28,6 +29,31 @@ Please confirm my reservation time. Thank you!`
     <section id="booking" className="relative py-28 px-6 md:px-16 lg:px-24 bg-[#05070B] overflow-hidden">
       {/* Background radial spotlight glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,119,255,0.1)_0%,transparent_70%)] pointer-events-none" />
+
+      {/* Floating 3D Comb & Shears along the outer margins */}
+      <Floating3DElement
+        src="/images/theshave/comb.png"
+        alt="3D Floating Comb"
+        className="absolute -left-6 md:left-6 top-1/4 w-28 md:w-44 z-10 opacity-75 md:opacity-95"
+        scrollSpeed={-130}
+        rotateRange={[-28, 14]}
+        tilt3D={{ rotateX: [-12, 10], rotateY: [15, -15] }}
+        scaleRange={[0.9, 1.05]}
+        blendMode="screen"
+        useRadialMask={true}
+      />
+
+      <Floating3DElement
+        src="/images/theshave/shears_right.png"
+        alt="3D Floating Shears Right"
+        className="absolute -right-8 md:right-8 bottom-6 w-36 md:w-52 z-10 opacity-75 md:opacity-95"
+        scrollSpeed={160}
+        rotateRange={[18, -22]}
+        tilt3D={{ rotateX: [14, -10], rotateY: [-22, 16] }}
+        scaleRange={[0.92, 1.1]}
+        blendMode="screen"
+        useRadialMask={true}
+      />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center max-w-xl mx-auto mb-16">
